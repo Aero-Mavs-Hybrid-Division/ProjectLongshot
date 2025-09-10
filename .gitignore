@@ -1,0 +1,54 @@
+# ----------------------------------------------------
+# MATLAB Git Ignore
+# Removes cache, temp, and auto-generated files
+# ----------------------------------------------------
+
+# MATLAB autosave files
+*.asv
+
+# MATLAB backup files
+*.bak
+
+# MATLAB figure backups
+*.fig.bak
+
+# MATLAB preferences and crash logs
+*.prf
+*.crash
+*.dmp
+
+# Simulink autosaves
+*.autosave
+*.mdl.autosave
+*.slx.autosave
+
+# Simulink cache files
+*.slxc
+*.slxc.*
+
+# Simulink Code Generation and Coder caches
+slprj/
+sccprj/
+codegen/
+*_ert_rtw/
+*_grt_rtw/
+*_sfprj/
+rtwgen/
+
+# MATLAB Live Script backup and checkpoints
+*.asv
+*.m~ 
+*.mlx.autosave
+
+# Parallel Computing Toolbox job logs
+parfor_*.log
+parfor_*.mat
+
+# Temporary build/test files
+*_lock.m
+*_lock.mex*
+*_mex.mex*
+mex*.*
+
+# MATLAB crash dump directories
+matlab_crash_dump*/
