@@ -26,7 +26,7 @@ T = 298;
 x_test = 1.0;
 
 m_tot0 = V_tank*(x_test/py.CoolProp.CoolProp.PropsSI('D', 'T', T, 'Q', 1, 'NitrousOxide') + (1-x_test)/py.CoolProp.CoolProp.PropsSI('D', 'T', T, 'Q', 0, 'NitrousOxide'))^(-1); 
-U_tot0 = ((1-x_test)*py.CoolProp.CoolProp.PropsSI('U', 'T', T, 'Q', 0, 'NitrousOxide')+x_test*py.CoolProp.CoolProp.PropsSI('U', 'T', T, 'Q', 1, 'NitrousOxide'))*m_tot0;
+U_tot0 = ((1-x_test)*py.CoolProp.CoolProp.PropsSI('H', 'T', T, 'Q', 0, 'NitrousOxide')+x_test*py.CoolProp.CoolProp.PropsSI('H', 'T', T, 'Q', 1, 'NitrousOxide'))*m_tot0;
 mu = 1.48e-5; % Nitrous Vapor Dynamic Viscosity @ Standard Conditions
 
 %% Convection Parameters
