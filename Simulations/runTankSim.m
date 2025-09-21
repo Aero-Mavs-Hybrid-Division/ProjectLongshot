@@ -13,6 +13,26 @@ h_vap = arrayfun(@(T) py.CoolProp.CoolProp.PropsSI('H','T',T,'Q',1,'NitrousOxide
 p = arrayfun(@(T) py.CoolProp.CoolProp.PropsSI('P','T',T,'Q',0,'NitrousOxide'), T_range);
 save('CoolPropLookup.mat', 'T_range', 'u_liq', 'u_vap', 'rho_liq', 'rho_vap', 'h_liq', 'h_vap', 'p');
 
+
+%% Generate Lookup Tables
+fluid = 'NitrousOxide';
+
+% Define Operationg 
+T_max = py.CoolProp.CoolProp.PropsSI('Tcrit', fluid);
+T_min = py.CoolProp.CoolProp.PropsSI('Ttrip', fluid);
+P_max = py.CoolProp.CoolProp.PropsSI('Pcrit', fluid);
+P_min = py.CoolProp.CoolProp.PropsSI('Ptrip', fluid);
+
+% Determin the operating conditions
+h_max = py.CoolProp.CoolProp.PropsSI('Hmass','T',T_max,'P',P_max, fluid);
+h_min = py.CoolProp.CoolProp.PropsSI('Hmass','T',T_min,'P',P_min, fluid);
+rho_max = py.CoolProp.CoolProp.PropsSI('Dmass','T',T_min,'Hmass', h_min);
+rho_min = py.CoolProp.CoolProp.PropsSI('Dmass','T',T_max,'Hmass', h_max);
+
+
+
+
+
 %% Generate Testing Conditions
 p_fill= 600*6894.76; % Fill Line Pressure (600 psi)
 p_amb = 101325;
